@@ -76,8 +76,6 @@ class MainActivity : AppCompatActivity() {
                 val responseJSON2 = JSONObject(response2.toString())
                 try {
                     val ticketPrice = responseJSON2.getJSONObject("data").getJSONObject(code).getJSONObject("1").getString("price").toInt() //получили данные о цене
-                    // По условию задания не совсем понятно откуда мы должны брать цены для сравнения (из этого же API? Сравнивать два одинаковых запроса?)
-                    // Поэтому мы решили просто захардкодить сравнение цены с "примерными" (возможно даже не рядом) ценами для этих городов
                     when(i){
                         1 -> assertEquals(12000, ticketPrice) // Данные для Москвы
                         2 -> assertEquals(17000, ticketPrice) // Данные для Парижа
