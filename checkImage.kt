@@ -30,7 +30,7 @@ import java.net.URL
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class MainActivity : AppCompatActivity() {
-    //Проверка категорий картиночек (море, океан, пляж и т.д.)
+    // Проверка категорий картиночек (море, океан, пляж и т.д.)
     @Test
     fun categories_check() {
         for (i in 1..6) {
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 val bitmap = resizeBitmap(
                     MediaStore.Images.Media.getBitmap(
                         contentResolver,
-                        uri
+                        uri // Получаем картинки
                     )
                 )
                 Constants.PICKED_BITMAP = bitmap
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     AppPreferences.getToken(applicationContext),
                     object : OnVisionApiListener {
                         override fun onSuccess(latLng: LatLng) {
-                            throw Exception("this test is not for places")
+                            throw Exception("this test is not for places") // Делаем запрос в VisionApi
                         }
 
                         override fun onErrorPlace(category: String) {
